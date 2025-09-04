@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+* {
+   
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+/* .slant-bg {
+  width: 100%;
+  height: 400px;
+  background: #4f46e5;
+  transform: skew(0deg, -20deg); 
+}
+
+.diagonal {
+  width: 100%;
+  height: 400px;
+  background: #9333ea;
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
+} */
+
+@theme {
+        
+    --color-primary:#1E40AF;
+    --font-heading:"Poppins", sans-serif;
+    --purple-bg:#9333ea;
+    --color-mainBg:#0A192F;
+    --color-textColor:#EDF2F7;
+    --color-bluebg:#EDF2F7;
+    
+}
+
+@layer utilities {
+   
+    .marginL {
+        margin-left:2rem;
+    }
+    .padL{
+        padding-left: 2rem;
+    }
+}
+
+@layer components {
+    
+    .mainApp {
+        @apply mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-screen-sm sm:max-w-screen-md md:max-w-screen-lg lg:max-w-screen-xl
+    }
+    .heroMain {
+        @apply sm:flex flex-col sm:justify-around sm:items-center gap-x-8
+    }
+    
+    .menu {
+        @apply flex sm:hidden
+    }
+    .wrapper {
+        @apply  sm:w-[500px] object-contain border-2 border-textColor grid grid-cols-3 auto-rows-[minmax(100px,_auto)]
+    }
+    
+}
