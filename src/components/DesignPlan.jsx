@@ -1,6 +1,6 @@
 import Flrpln from "../assets/images/floorplan.jpg";
 import sitePlan2 from "../assets/images/siteplan3.jpg";
-import plumbing2 from "../assets/images/plumbing1.jpg";
+import plumbing2 from "../assets/images/Plumbing1.jpg";
 import Electrical from "../assets/images/Electrical-drawing1.jpg";
 import villa1 from "../assets/threeDImages/designs_3d.jpg";
 import villa2 from "../assets/threeDImages/luxury_villa1.jpeg";
