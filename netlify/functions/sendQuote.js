@@ -19,14 +19,14 @@ export async function handler(event) {
             `;
 
         
-
+        
 
 
         await fetch(`https://api.telegram.org/bot/sendMessage`, {
             method:"POST",
             headers:{ "Content-Type": "application/json" },
             body: JSON.stringify({
-                
+              
                 text,
                 parse_mode:"Markdown",
             }),
