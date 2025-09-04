@@ -3,7 +3,7 @@ import Button from "./Button";
 import Timeline from "./Timeline";
 import ColmImg from "../assets/images/Column-Exa.jpeg";
 import ColmMark from "../assets/images/column_marking2.jpeg";
-import colMark2 from "../assets/images/column-marking.jpeg";
+import colMark2 from "../assets/images/Column-marking.jpeg";
 import partWall from "../assets/images/Partition-Wall2.jpeg";
 import plasterImg1 from "../assets/images/plastering work.jpeg";
 import plasterImg2 from "../assets/images/plastering work1.jpeg";
