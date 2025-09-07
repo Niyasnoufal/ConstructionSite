@@ -1,3 +1,4 @@
+import { useState } from "react";
 import heroVid from "../assets/video/workers.mp4";
 import Button from "./Button";
 import Timeline from "./Timeline";
@@ -10,14 +11,31 @@ import plasterImg2 from "../assets/images/plastering work1.jpeg";
 
 
 const Construction = () => {
+    const [videoReady, setVideoReady] = useState(false);
   return (
     <section > 
         <h1 className="text-textColor text-3xl sm:text-5xl text-center py-5">Home Constructions</h1>
-        <div className="relative w-full h-screen">
-            <video className="absolute top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline>
-                <source src={heroVid} type="video/mp4" />
-            </video>
+           <div className="relative w-full h-screen  flex justify-center items-center">
+      {!videoReady && (
+        <div className="flex space-x-2 text-6xl">
+          <span className="animate-bounce text-white ">.</span>
+          <span className="animate-bounce animation-delay-200 text-white ">.</span>
+          <span className="animate-bounce animation-delay-400 text-white ">.</span>
         </div>
+      )}
+
+      <video
+        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        onCanPlay={() => setVideoReady(true)}
+      >
+        <source src={heroVid} type="video/mp4" />
+      </video>
+    </div>
+
         <div>
              <h2 className="text-2xl sm:text-4xl text-textColor text-center my-5">Our 7 Step Process</h2>   
             <Timeline/>

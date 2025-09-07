@@ -6,7 +6,7 @@ import { IoCheckmarkCircleSharp } from "react-icons/io5";
 
 const PricingCard = () => {
   return (
-    <div className="md:flex justify-center  gap-x-8 " >
+    <div className="flex flex-col items-center md:flex-row md:justify-center md:gap-x-8" >
         {
             PricingData.map((item) => (
             
@@ -27,10 +27,6 @@ const PricingCard = () => {
                         </li>
                       ))}
                     </ul>
-                  {/* <div className="mx-4 mt-8">
-                        <button className="w-full h-[35px] rounded-lg bg-mainBg">Select plan</button>
-                  </div> */}
-                   
                 </div>
             ))
         }

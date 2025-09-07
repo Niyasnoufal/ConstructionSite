@@ -22,7 +22,11 @@ const App = () => {
   }, []);
 
   return (
-    <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
+    <Suspense fallback={<div className="flex space-x-2 text-6xl">
+          <span className="animate-bounce text-white ">.</span>
+          <span className="animate-bounce animation-delay-200 text-white ">.</span>
+          <span className="animate-bounce animation-delay-400 text-white ">.</span>
+        </div>}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { testimonialData } from "../data";
 import Card from "./Card";
 import { TbMathLower } from "react-icons/tb";
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const[touchStartX, setTouchStartX] = useState(0);
-  const[touchEndX, setTouchEndX] = useState(0);
-
-  
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const prevSlide = () => {
     setCurrentIndex((prev) =>
@@ -22,37 +20,34 @@ const Testimonial = () => {
     );
   };
 
-//   Touch start
-const handleTouchStart = (e) => {
-    setTouchStartX(e.touches[0].clientX)
-}
-// Touch move
+  // Touch start
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
 
-const handleTouchMove = (e) => {
-    setTouchEndX(e.touches[0].clientX)
-}
+  // Touch move
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
 
-// Touch End
-
-const handleTouchEnd = () => {
-    if(touchStartX - touchEndX > 50) {
-        nextSlide()
+  // Touch end
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      nextSlide();
     }
-    if(touchEndX - touchStartX > 50) {
-        prevSlide()
+    if (touchEndX.current - touchStartX.current > 50) {
+      prevSlide();
     }
-}
-
-
+  };
 
   return (
-    <section className="relative pb-5 flex justify-center items-center bg-bluebg pt-10">
-        <div className="absolute top-5">
-            <h1 className="text-5xl underline" >Testimonials</h1>
-        </div>
-        
+    <section className="relative pb-5 flex flex-col justify-center items-center bg-bluebg pt-10">
+      <h1 className="text-3xl sm:text-5xl underline text-center mb-6">
+        Testimonials
+      </h1>
+
       {/* Outer container */}
-      <div className="w-[600px] h-[400px] overflow-hidden relative bg-mainBg mt-8">
+      <div className="w-full max-w-[600px] h-[400px] overflow-hidden relative bg-mainBg rounded-lg shadow-md">
         {/* Inner container for sliding */}
         <ul
           className="flex transition-transform duration-500 ease-in-out"
@@ -64,12 +59,12 @@ const handleTouchEnd = () => {
           {testimonialData.map((item, index) => (
             <li
               key={index}
-              className="flex-shrink-0 w-[600px] h-[400px] flex justify-center items-center relative"
+              className="flex-shrink-0 w-full h-[400px] flex justify-center items-center relative px-4"
             >
               <span className="text-bluebg absolute top-4 left-6 text-6xl select-none z-40">
                 “
               </span>
-              <Card item={item} className="flex" />
+              <Card item={item} />
               <span className="text-bluebg absolute bottom-4 right-6 text-6xl select-none">
                 ”
               </span>
@@ -81,13 +76,15 @@ const handleTouchEnd = () => {
       {/* Navigation buttons */}
       <button
         onClick={prevSlide}
-        className="hidden sm:flex p-4 bg-mainBg absolute sm:left-5 top-1/2 -translate-y-1/2 h rounded-full"
+        aria-label="Previous slide"
+        className="hidden sm:flex p-4 bg-mainBg absolute sm:left-5 top-1/2 -translate-y-1/2 rounded-full shadow"
       >
         <TbMathLower className="text-textColor" />
       </button>
       <button
         onClick={nextSlide}
-        className="hidden sm:flex p-4 bg-mainBg rotate-180 absolute sm:right-5 top-1/2 -translate-y-1/2  rounded-full"
+        aria-label="Next slide"
+        className="hidden sm:flex p-4 bg-mainBg rotate-180 absolute sm:right-5 top-1/2 -translate-y-1/2 rounded-full shadow"
       >
         <TbMathLower className="text-textColor" />
       </button>
