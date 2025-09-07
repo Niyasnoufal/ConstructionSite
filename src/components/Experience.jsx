@@ -6,7 +6,7 @@ const Experience = () => {
    
     
   return (
-   <section className="bg-gray-900 py-5">
+   <section className="bg-gray-900 py-5" data-aos="fade-down">
   <div>
     <h1 className="text-5xl text-center text-textColor underline mb-8" style={{marginBottom:"20px"}}>
       Industry Experience

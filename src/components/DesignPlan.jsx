@@ -9,6 +9,7 @@ import villa4 from "../assets/threeDImages/designs7_3d.jpg";
 import villa5 from "../assets/threeDImages/luxury_villa2.jpeg";
 import { useState } from "react";
 import DesignSwiper from "./DesignSwiper";
+import DesignContent from "./DesignContent";
 
 const DesignPlan = () => {
   const images = [Flrpln, sitePlan2, plumbing2, Electrical];
@@ -59,6 +60,9 @@ const DesignPlan = () => {
       <div>
         <h2 className="text-center py-3 text-3xl sm:text-5xl text-textColor ">Top Notch 3d Designs</h2>
           <DesignSwiper threeDImg={threeDImg} />
+      </div>
+      <div>
+        <DesignContent />
       </div>
     </section>
   );

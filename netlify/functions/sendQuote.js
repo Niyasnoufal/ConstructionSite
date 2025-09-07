@@ -10,23 +10,25 @@ export async function handler(event) {
 
 
     try {
-        const {name, phone, message} = JSON.parse(event.body);
+        const {name, email, phone, message} = JSON.parse(event.body);
         const text = `
         📩 *New Quote Request!*
         👤 Name: ${name}
-        📧 Email: ${phone}
+        📧 Email:${email}
+        📱 Phone: ${phone}
         💬 Message: ${message}
             `;
 
         
-        
+        const BOT_TOKEN = process.env.VITE_BOT_TOKEN
+        const CLIENT_ID = process.env.VITE_CLIENT_ID
 
 
-        await fetch(`https://api.telegram.org/bot/sendMessage`, {
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method:"POST",
             headers:{ "Content-Type": "application/json" },
             body: JSON.stringify({
-              
+                chat_id:CLIENT_ID,
                 text,
                 parse_mode:"Markdown",
             }),

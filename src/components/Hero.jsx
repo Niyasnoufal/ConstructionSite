@@ -13,7 +13,7 @@ const Hero = () => {
     rodImg
   ]
   return (
-    <section className="heroMain" style={{marginTop:"50px", marginBottom:"50px"}}>
+    <section className="heroMain" style={{marginTop:"50px", marginBottom:"50px"}} data-aos="fade-up">
         <div className="heroImg w-full max-w-6xl mx-auto">
             <ImageSwiper images={images} />
         </div>

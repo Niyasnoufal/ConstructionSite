@@ -46,7 +46,7 @@ const Construction = () => {
                 <div className="w-full bg-textColor col-span-2">
                 </div>
             </div>
-            <div className="text-textColor text-center mt-8">
+            <div className="text-textColor text-center mt-8" data-aos="fade-right">
                 <h5 className="text-xl sm:text-4xl ">Construction works done </h5>
                 <p className="text-sm px-5">The development projects are very much intrested, Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, praesentium!</p>
                  <div className="flex justify-center">

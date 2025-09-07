@@ -5,7 +5,7 @@ import Testimonial from "../components/Testimonial"
 
 const Home = () => {
   return (
-    <section>
+    <section >
         <Hero />
         <Experience/>
         <OurPride/>

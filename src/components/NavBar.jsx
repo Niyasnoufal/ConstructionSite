@@ -1,18 +1,33 @@
 import Logo from "../assets/images/logo.jpg";
 import { navData } from "../data";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
+
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
+  const[selected, setSelected] = useState("");
+  const location = useLocation()
 
   const handleClick = () => {
     setMenu(!menu);
   };
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+
+    const servicePath = navData.find((item) => item.children)?.children.find((child) => child.path === currentPath)
+
+    if(servicePath) {
+      setSelected(servicePath.path)
+    }else {
+      setSelected("")
+    }
+  },[location.pathname])
 
   useEffect(() => {
     function handleScroll() {
@@ -48,6 +63,7 @@ const NavBar = () => {
             item.children ? (
               <li key={item.id}>
                 <select
+                  value={selected}
                   onChange={(e) => navigate(e.target.value)}
                   className="w-[120px]  bg-transparent text-textColor"
                 >
@@ -78,10 +94,6 @@ const NavBar = () => {
           </button>
         </div>
       </nav>
-
-      {/* Mobile Nav (slide down with glass effect) */}
-      {/* Mobile Nav (Slide-in from Left) */}
-{/* Mobile Nav (Slide-in from Left) */}
 <div
   className={`fixed top-0 left-0 h-full w-3/4 max-w-sm bg-white/20 backdrop-blur-lg shadow-lg transform transition-transform duration-500 ease-in-out z-40
     ${menu ? "translate-x-0" : "-translate-x-full"}`}
@@ -91,9 +103,10 @@ const NavBar = () => {
       item.children ? (
         <li key={item.id}>
           <select
+            value={selected}
             onChange={(e) => {
               navigate(e.target.value);
-              setMenu(false); // 👈 closes menu after selection
+              setMenu(false); 
             }}
             className="w-[120px] text-textColor bg-transparent"
           >

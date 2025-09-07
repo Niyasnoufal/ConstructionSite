@@ -81,15 +81,15 @@ const handleTouchEnd = () => {
       {/* Navigation buttons */}
       <button
         onClick={prevSlide}
-        className="hidden sm:flex p-4 bg-mainBg absolute sm:left-5 top-1/2 -translate-y-1/2 hover:bg-bluebg rounded-full"
+        className="hidden sm:flex p-4 bg-mainBg absolute sm:left-5 top-1/2 -translate-y-1/2 h rounded-full"
       >
-        <TbMathLower className={`mainBg ? text-bluebg : text-mainBg`} />
+        <TbMathLower className="text-textColor" />
       </button>
       <button
         onClick={nextSlide}
-        className="hidden sm:flex p-4 bg-mainBg rotate-180 absolute sm:right-5 top-1/2 -translate-y-1/2 hover:bg-bluebg rounded-full"
+        className="hidden sm:flex p-4 bg-mainBg rotate-180 absolute sm:right-5 top-1/2 -translate-y-1/2  rounded-full"
       >
-        <TbMathLower className={`mainBg ? text-bluebg : text-mainBg`} />
+        <TbMathLower className="text-textColor" />
       </button>
     </section>
   );

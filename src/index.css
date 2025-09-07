@@ -29,8 +29,8 @@
     --purple-bg:#9333ea;
     --color-mainBg:#0A192F;
     --color-textColor:#EDF2F7;
+    --color-bgGold:#B3830B;
     --color-bluebg:#EDF2F7;
-    
 }
 
 @layer utilities {
@@ -40,6 +40,21 @@
     }
     .padL{
         padding-left: 2rem;
+    }
+
+    .animate-success {
+        animation: success 3s linear forwards;
+    }
+
+     @keyframes success {
+         0%{
+            width: 300px;
+        }
+        100%{
+            width: 0px;
+        }
+       
+
     }
 }
 
